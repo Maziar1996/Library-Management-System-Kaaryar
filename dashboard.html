@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📚 Library Management</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-content">
+        <h1 class="logo">📚 Library Management</h1>
+        <nav class="nav">
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="books.html">Browse Books</a>
+          <a href="my-loans.html">My Loans</a>
+          <a href="logout">Logout</a>
+        </nav>
+        <div class="user-info">
+          <span class="user-avatar">S</span>
+          <span class="student-name">Student Name</span>
+        </div>
+      </div>
+    </header>
+    <main class="main-content container">
+      <section class="card">
+        <h2 class="welcome-message">Welcome back, Student Name!</h2>
+        <p class="mb-2"
+          >Manage your library account and explore our collection.</p
+        >
+        <div class="grid grid-2">
+          <div class="stat-card">
+            <div class="stat-number">0</div>
+            <p class="stat-label">Active Loans</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">0</div>
+            <p class="stat-label">Available Books</p>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Quick Actions</h3>
+          <div class="grid grid-2">
+            <div class="card">
+              <h4>📖 Browse Books</h4>
+              <p>Explore our collection and find your next read</p>
+              <a href="books.html" class="btn btn-primary">Go to Books</a>
+            </div>
+            <div class="card">
+              <h4>📋 My Loans</h4>
+              <p>View and manage your current loans</p>
+              <a href="my-loans.html" class="btn btn-primary">Go to Loans</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
