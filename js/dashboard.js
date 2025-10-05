@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const token = getCookie("jwtToken");
     if (!token) {
       console.error("No JWT token found. Redirecting to login.");
-      window.location.href = "login.html";
+      window.location.href = "/login.html";
       return null;
     }
 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (!response.ok) {
         if (response.status === 401) {
           setCookie("jwtToken", "", -1);
-          window.location.href = "login.html";
+          window.location.href = "/login.html";
         }
         throw new Error(
           data.message || `HTTP ${response.status}: ${response.statusText}`
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const token = getCookie("jwtToken");
   if (!token) {
     console.log("No token found, redirecting to login");
-    window.location.href = "login.html";
+    window.location.href = "/login.html";
     return;
   }
 

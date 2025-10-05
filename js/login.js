@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const token = getCookie("jwtToken");
     if (!token && endpoint !== "/auth/login") {
       console.error("No JWT token found. Redirecting to login.");
-      window.location.href = "login.html";
+      window.location.href = "/login.html";
       return null;
     }
 
@@ -111,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Login form submission
   if (loginForm) {
     loginForm.addEventListener("submit", async function (event) {
       event.preventDefault();

@@ -1,6 +1,4 @@
-/* Library Management System - Minimal Flat Design */
-
-/* Reset and Base Styles */
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -14,14 +12,14 @@ body {
   background-color: #f8f9fa;
 }
 
-/* Container */
+/* Container (All Pages) */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Header */
+/* Header and Navigation (All Pages) */
 .header {
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -79,13 +77,70 @@ body {
   font-weight: bold;
 }
 
-/* Main Content */
+/* Main Content (All Pages) */
 .main-content {
   padding: 2rem 0;
   min-height: calc(100vh - 80px);
 }
 
-/* Cards */
+/* Index Page */
+.hero {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.feature-card span {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.feature-card p {
+  color: #666;
+}
+
+/* Dashboard, Books, and My Loans Pages */
 .card {
   background: white;
   border-radius: 8px;
@@ -109,7 +164,7 @@ body {
   color: #2c3e50;
 }
 
-/* Buttons */
+/* Buttons (All Pages) */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -164,7 +219,12 @@ body {
   font-size: 0.875rem;
 }
 
-/* Forms */
+.btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Forms (Login and Books Pages) */
 .form-group {
   margin-bottom: 1rem;
 }
@@ -199,7 +259,7 @@ body {
   background: white;
 }
 
-/* Tables */
+/* My Loans Page */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -223,7 +283,11 @@ body {
   background: #f8f9fa;
 }
 
-/* Status Badges */
+.table td:last-child {
+  text-align: center;
+}
+
+/* Status Badges (My Loans and Books Pages) */
 .status {
   display: inline-block;
   padding: 0.25rem 0.75rem;
@@ -257,7 +321,7 @@ body {
   color: #721c24;
 }
 
-/* Grid Layout */
+/* Grid Layout (Dashboard and Books Pages) */
 .grid {
   display: grid;
   gap: 1.5rem;
@@ -275,10 +339,13 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-/* Statistics Cards */
+/* Statistics Cards (Dashboard and My Loans Pages) */
 .stat-card {
   text-align: center;
   padding: 2rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px 0;
 }
 
 .stat-number {
@@ -295,7 +362,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* Search and Filters */
+/* Search and Filters (Books Page) */
 .search-bar {
   display: flex;
   gap: 1rem;
@@ -315,7 +382,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* Pagination */
+/* Pagination (Books Page) */
 .pagination {
   display: flex;
   justify-content: center;
@@ -339,7 +406,7 @@ body {
   border-color: #3498db;
 }
 
-/* Alerts */
+/* Alerts (All Pages) */
 .alert {
   padding: 1rem;
   border-radius: 6px;
@@ -389,7 +456,102 @@ body {
   font-size: 1.5rem;
 }
 
-/* Responsive Design */
+/* Books Page */
+.book-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.book-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.book-card p {
+  margin: 5px 0;
+}
+
+.borrow-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.borrow-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Loading Spinner (All Pages) */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility Classes (All Pages) */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+/* Responsive Design (All Pages) */
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
@@ -424,67 +586,20 @@ body {
   .grid-4 {
     grid-template-columns: 1fr;
   }
-}
 
-/* Loading Spinner */
-.loading {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #3498db;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-/* Error Message Is Dynamically Added */
-.error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
-  text-align: center;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+  .hero {
+    padding: 2rem 1rem;
   }
-  100% {
-    transform: rotate(360deg);
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
-
-/* Utility Classes */
-.text-center {
+footer {
   text-align: center;
-}
-.text-right {
-  text-align: right;
-}
-.text-left {
-  text-align: left;
-}
-.mb-1 {
-  margin-bottom: 0.5rem;
-}
-.mb-2 {
-  margin-bottom: 1rem;
-}
-.mb-3 {
-  margin-bottom: 1.5rem;
-}
-.mt-1 {
-  margin-top: 0.5rem;
-}
-.mt-2 {
-  margin-top: 1rem;
-}
-.mt-3 {
-  margin-top: 1.5rem;
-}
-.hidden {
-  display: none;
-}
-.visible {
-  display: block;
 }
