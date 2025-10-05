@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  console.log("Dashboard loaded - Starting initialization");
-
   function getCookie(name) {
     const nameEQ = name + "=";
     const cookies = document.cookie.split(";");
@@ -76,12 +74,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const token = getCookie("jwtToken");
   if (!token) {
-    console.log("No token found, redirecting to login");
     window.location.href = "/login.html";
     return;
   }
-
-  console.log("Token found, proceeding with load");
 
   const studentNameElements = document.querySelectorAll(".student-name");
   const welcomeMessage = document.querySelector(".welcome-message");
@@ -108,16 +103,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 
-  console.log("DOM elements and logout handler set");
-
   async function loadDashboardData() {
-    console.log("Loading dashboard data..."); // Debug log
     try {
       const data = await makeAuthenticatedRequest("/auth/me");
-      console.log("API response:", data); // Log for debugging
 
       if (data && data.success && data.data && data.data.user) {
-        // Display user name (firstName + lastName)
         const user = data.data.user;
         const fullName =
           user.firstName && user.lastName
@@ -151,7 +141,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         statNumbers[1].textContent = 0;
         console.warn("Invalid response structure");
       }
-      console.log("Dashboard data loaded successfully");
     } catch (error) {
       errorMessage.innerHTML =
         "Failed to load dashboard data. Please try again.";
@@ -160,12 +149,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  console.log("Functions defined, loading data..."); // Debug log
-
-  // Load data
   try {
     await loadDashboardData();
-    console.log("All data loaded");
   } catch (error) {
     console.error("Error in data loading:", error);
   }
