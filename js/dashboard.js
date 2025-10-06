@@ -121,7 +121,6 @@ document.addEventListener("DOMContentLoaded", async function () {
           welcomeMessage.textContent = `Welcome back, ${fullName}!`;
         }
 
-        // Display stats
         if (data.data.stats) {
           statNumbers[0].textContent = data.data.stats.activeLoans || 0;
           statNumbers[1].textContent = data.data.stats.availableBooks || 0;
