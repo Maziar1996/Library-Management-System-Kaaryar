@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const token = getCookie("jwtToken");
     if (!token) {
       console.error("No JWT token found. Redirecting to login.");
-      window.location.href = "/login.html";
+      window.location.href = "login.html";
       return null;
     }
 
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (!response.ok) {
         if (response.status === 401) {
           setCookie("jwtToken", "", -1);
-          window.location.href = "/login.html";
+          window.location.href = "login.html";
         }
         throw new Error(
           data.message || `HTTP ${response.status}: ${response.statusText}`
@@ -74,11 +74,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const token = getCookie("jwtToken");
   if (!token) {
-    window.location.href = "/login.html";
+    window.location.href = "login.html";
     return;
   }
 
   const studentNameElements = document.querySelectorAll(".student-name");
+  const userAvatar = document.querySelector(".user-avatar");
   const welcomeMessage = document.querySelector(".welcome-message");
   const statNumbers = document.querySelectorAll(".stat-number");
   const logoutLink = document.querySelector('.nav a[href="logout"]');
@@ -99,7 +100,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       event.preventDefault();
       setCookie("jwtToken", "", -1);
 
-      window.location.href = "/login.html";
+      window.location.href = "login.html";
     });
   }
 
@@ -117,6 +118,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         studentNameElements.forEach((element) => {
           element.textContent = fullName;
         });
+
+        if (userAvatar) {
+          const initial =
+            user.firstName?.charAt(0) || user.lastName?.charAt(0) || "U";
+          userAvatar.textContent = initial.toUpperCase();
+        }
+
         if (welcomeMessage) {
           welcomeMessage.textContent = `Welcome back, ${fullName}!`;
         }

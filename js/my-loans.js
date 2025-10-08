@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   async function makeAuthenticatedRequest(endpoint, options = {}) {
     const token = getCookie("jwtToken");
     if (!token) {
-      window.location.href = "/login.html";
+      window.location.href = "login.html";
       return null;
     }
 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (!response.ok) {
         if (response.status === 401) {
           setCookie("jwtToken", "", -1);
-          window.location.href = "/login.html";
+          window.location.href = "login.html";
         }
         throw new Error(
           data?.message || `HTTP ${response.status}: ${response.statusText}`
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const token = getCookie("jwtToken");
   if (!token) {
-    window.location.href = "/login.html";
+    window.location.href = "login.html";
     return;
   }
 
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     logoutLink.addEventListener("click", function (event) {
       event.preventDefault();
       setCookie("jwtToken", "", -1);
-      window.location.href = "/login.html";
+      window.location.href = "login.html";
     });
   }
 
